@@ -1,0 +1,24 @@
+{
+  "name": "serverless-github-pullrequest-rest-api",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brucethemaster/serverless-github-pullrequest-rest-api.git"
+  },
+  "author": "Bruce.Qin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brucethemaster/serverless-github-pullrequest-rest-api/issues"
+  },
+  "homepage": "https://github.com/brucethemaster/serverless-github-pullrequest-rest-api#readme",
+  "dependencies": {
+    "aws-sdk": "^2.1030.0",
+    "node-fetch": "^3.1.0"
+  }
+}
