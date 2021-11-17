@@ -1,18 +1,36 @@
-'use strict';
+import axios from 'axios';
 
-module.exports.hello = async (event) => {
+export const healthCheck = async (event, context) => {
   return {
     statusCode: 200,
-    body: JSON.stringify(
-      {
-        message: 'Go Serverless v1.0! Your function executed successfully!',
-        input: event,
-      },
-      null,
-      2
-    ),
+    body: 'ok',
+    isBase64Encoded: false,
   };
+};
+export const getPullRequest = async (event, context) => {
+  const baseUrl = 'https://api.github.com/repos/';
+  const headers = {
+    'Content-Type': 'application/json',
+  };
+  const user = event?.pathParameters?.user;
+  const repository = event?.pathParameters?.repository;
+  const queryParameters = event.queryStringParameters;
 
-  // Use this code if you don't use the http event with the LAMBDA-PROXY integration
-  // return { message: 'Go Serverless v1.0! Your function executed successfully!', event };
+  let url = baseUrl + user + '/' + repository + '/pulls';
+  const queryString = Object.entries(queryParameters)
+    .map(entry => entry.join('='))
+    .join('&');
+  if (queryString) {
+    url += `?${queryString}`;
+  }
+
+  const res = await axios.get(url);
+  let data = res.data;
+
+  return {
+    statusCode: 200,
+    body: JSON.stringify(data),
+    isBase64Encoded: false,
+    headers,
+  };
 };

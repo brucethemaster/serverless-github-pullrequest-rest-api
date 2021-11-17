@@ -2,9 +2,12 @@ service: serverless-github-pullrequest-rest-api
 
 frameworkVersion: '2'
 
+plugins:
+  - serverless-bundle
+  - serverless-offline
 provider:
   name: aws
-  runtime: nodejs12.x
+  runtime: nodejs14.x
   lambdaHashingVersion: 20201221
   stage: dev
   region: us-west-1
@@ -13,7 +16,7 @@ provider:
   timeout: 10
 
 functions:
-  view:
+  get:
     handler: handler.getPullRequest
     events:
       - http:
@@ -27,3 +30,10 @@ functions:
               paths:
                 user: true
                 repository: true
+  healthcheck:
+    handler: handler.healthCheck
+    events:
+      - http:
+          path: healthcheck
+          method: get
+          cors: true
