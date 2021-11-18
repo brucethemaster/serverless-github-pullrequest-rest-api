@@ -1,3 +1,5 @@
+org: brucethemaster
+app: serverless-github-pullrequest-rest-api
 service: serverless-github-pullrequest-rest-api
 
 frameworkVersion: '2'
