@@ -27,12 +27,23 @@ describe('healthCheck', () => {
 
 describe('getPullRequest', () => {
   it('get pull request successfully', async () => {
-    const data = { data: 'data' };
+    const data = {
+      data: [
+        {
+          url: '/1',
+          name: 'game_name1',
+        },
+        {
+          url: '/2',
+          name: 'game_name2',
+        },
+      ],
+    };
 
     axios.get.mockImplementationOnce(() => Promise.resolve(data));
 
     await expect(handler.getPullRequest(event, context)).resolves.toEqual({
-      body: JSON.stringify(data.data),
+      body: '[{"pull_request":"/1","number_commits":0},{"pull_request":"/2","number_commits":0}]',
       headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
       isBase64Encoded: false,
       statusCode: 200,
