@@ -24,14 +24,32 @@ export const getPullRequest = async (event, context) => {
   if (queryString) {
     url += `?${queryString}`;
   }
+  try {
+    const res = await axios.get(url);
+    let data = res.data;
 
-  const res = await axios.get(url);
-  let data = res.data;
+    if (data && typeof expenses !== 'object') {
+      const pullRequest = await Promise.all(
+        data.map(async item => {
+          try {
+            let pullRequestId = item.url.slice(item.url.lastIndexOf('/') + 1);
+            let commitsUrl = baseUrl + user + '/' + repository + '/pulls/' + pullRequestId + '/commits';
 
-  return {
-    statusCode: 200,
-    body: JSON.stringify(data),
-    isBase64Encoded: false,
-    headers,
-  };
+            let res = await axios.get(commitsUrl);
+            let commits = res?.data?.length || 0;
+
+            return { pull_request: item.url, number_commits: commits };
+          } catch (err) {}
+        })
+      );
+      return {
+        statusCode: 200,
+        body: JSON.stringify(pullRequest),
+        isBase64Encoded: false,
+        headers,
+      };
+    }
+  } catch (err) {
+    throw new Error(err);
+  }
 };
