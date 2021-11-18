@@ -2,7 +2,7 @@
 
 
 sls create --template aws-nodejs --path serverless-github-pullrequest-rest-api\
-#serverless deploy 
+deploy project: serverless deploy\
 unit test cmd: npm test\
-integration test cmd:  run servler test\
+integration test cmd:  run servler test
 
