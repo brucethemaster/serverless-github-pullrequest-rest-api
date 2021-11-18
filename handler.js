@@ -3,7 +3,7 @@ import axios from 'axios';
 export const healthCheck = async (event, context) => {
   return {
     statusCode: 200,
-    body: 'ok',
+    body: JSON.stringify({ message: 'ok' }),
     isBase64Encoded: false,
   };
 };
@@ -11,10 +11,11 @@ export const getPullRequest = async (event, context) => {
   const baseUrl = 'https://api.github.com/repos/';
   const headers = {
     'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*',
   };
   const user = event?.pathParameters?.user;
   const repository = event?.pathParameters?.repository;
-  const queryParameters = event.queryStringParameters;
+  const queryParameters = event?.queryStringParameters;
 
   let url = baseUrl + user + '/' + repository + '/pulls';
   const queryString = Object.entries(queryParameters)
