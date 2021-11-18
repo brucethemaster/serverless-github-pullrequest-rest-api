@@ -16,14 +16,14 @@
     body:
       {
         [
-          { 'pul_request': 'https://api.github.com/repos/colinhacks/zod/pulls/767', 'number_commits': 1 },
-          { 'pul_request': 'https://api.github.com/repos/colinhacks/zod/pulls/766', 'number_commits': 1 },
-          { 'pul_request': 'https://api.github.com/repos/colinhacks/zod/pulls/758', 'number_commits': 1 },
-          { 'pul_request': 'https://api.github.com/repos/colinhacks/zod/pulls/752', 'number_commits': 1 },
-          { 'pul_request': 'https://api.github.com/repos/colinhacks/zod/pulls/681', 'number_commits': 1 },
-          { 'pul_request': 'https://api.github.com/repos/colinhacks/zod/pulls/488', 'number_commits': 1 },
-          { 'pul_request': 'https://api.github.com/repos/colinhacks/zod/pulls/420', 'number_commits': 1 },
-          { 'pul_request': 'https://api.github.com/repos/colinhacks/zod/pulls/167', 'number_commits': 5 },
-          { 'pul_request': 'https://api.github.com/repos/colinhacks/zod/pulls/80', 'number_commits': 1 },
+          { 'pull_request': 'https://api.github.com/repos/colinhacks/zod/pulls/767', 'number_commits': 1 },
+          { 'pull_request': 'https://api.github.com/repos/colinhacks/zod/pulls/766', 'number_commits': 1 },
+          { 'pull_request': 'https://api.github.com/repos/colinhacks/zod/pulls/758', 'number_commits': 1 },
+          { 'pull_request': 'https://api.github.com/repos/colinhacks/zod/pulls/752', 'number_commits': 1 },
+          { 'pull_request': 'https://api.github.com/repos/colinhacks/zod/pulls/681', 'number_commits': 1 },
+          { 'pull_request': 'https://api.github.com/repos/colinhacks/zod/pulls/488', 'number_commits': 1 },
+          { 'pull_request': 'https://api.github.com/repos/colinhacks/zod/pulls/420', 'number_commits': 1 },
+          { 'pull_request': 'https://api.github.com/repos/colinhacks/zod/pulls/167', 'number_commits': 5 },
+          { 'pull_request': 'https://api.github.com/repos/colinhacks/zod/pulls/80', 'number_commits': 1 },
         ],
       }
