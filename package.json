@@ -1,11 +1,10 @@
 {
   "name": "serverless-github-pullrequest-rest-api",
   "version": "1.0.0",
-  "type": "module",
   "description": "",
   "main": "handler.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -19,6 +18,13 @@
   "homepage": "https://github.com/brucethemaster/serverless-github-pullrequest-rest-api#readme",
   "dependencies": {
     "aws-sdk": "^2.1030.0",
-    "node-fetch": "^3.1.0"
+    "axios": "^0.24.0"
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.16.0",
+    "axios-mock-adapter": "^1.20.0",
+    "jest": "^27.3.1",
+    "serverless-bundle": "^5.1.0",
+    "serverless-offline": "^8.2.0"
   }
 }
