@@ -13,7 +13,7 @@ provider:
   region: us-west-1
   apiName: ${self:service}
   memorySize: 256 # mb
-  timeout: 10
+  timeout: 10 # sec
 
 functions:
   get:
