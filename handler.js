@@ -28,7 +28,7 @@ export const getPullRequest = async (event, context) => {
     const res = await axios.get(url);
     let data = res.data;
 
-    if (data && typeof expenses !== 'object') {
+    if (data && typeof pullRequest !== 'object') {
       const pullRequest = await Promise.all(
         data.map(async item => {
           try {
