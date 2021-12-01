@@ -22,7 +22,11 @@ export const getPullRequest = async (event, context) => {
     .map(entry => entry.join('='))
     .join('&');
   if (queryString) {
-    url += `?${queryString}`;
+    url +=
+      `?${queryString}` +
+      `&client_id=
+    ${process.env.REACT_APP_GITHUB_CLIENT_ID} & clent_secret=
+    ${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`;
   }
   try {
     const res = await axios.get(url);
@@ -33,7 +37,17 @@ export const getPullRequest = async (event, context) => {
         data.map(async item => {
           try {
             let pullRequestId = item.url.slice(item.url.lastIndexOf('/') + 1);
-            let commitsUrl = baseUrl + user + '/' + repository + '/pulls/' + pullRequestId + '/commits';
+            let commitsUrl =
+              baseUrl +
+              user +
+              '/' +
+              repository +
+              '/pulls/' +
+              pullRequestId +
+              '/commits' +
+              `?client_id=
+          ${process.env.REACT_APP_GITHUB_CLIENT_ID} & clent_secret=
+          ${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`;
 
             let res = await axios.get(commitsUrl);
             let commits = res?.data?.length || 0;
